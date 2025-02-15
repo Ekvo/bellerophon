@@ -19,10 +19,10 @@ func (s *SqlSource) UserCreate(ctx context.Context, u *UserSourceData) (int, err
 	row := s.source.QueryRowContext(ctx, `
 WITH ins_1 AS (
 	INSERT INTO users (login,
-    						 hashed_password,
-    						 name,
-   				   	 surname,
-    						 email)
+	                   hashed_password,
+	                   name,
+	                   surname,
+	                   email)
 	VALUES ($1,$2,$3,$4,$5)
 	RETURNING  id)
 INSERT INTO info (id) 
